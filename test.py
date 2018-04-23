@@ -18,5 +18,11 @@ class TestPerceptron(unittest.TestCase):
 		self.assertEqual(1,NAND.do(1,0))
 		self.assertEqual(1,NAND.do(0,0))
 		self.assertEqual(0,NAND.do(1,1))
+	def test_or(self):
+		OR = fortest.Perceptron(w1=0.5,w2=0.5,b = -0.2)
+		self.assertEqual(1,OR.do(0,1))
+		self.assertEqual(1,OR.do(1,0))
+		self.assertEqual(0,OR.do(0,0))
+		self.assertEqual(1,OR.do(1,1))
 if __name__ == '__main__':
 	unittest.main()

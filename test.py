@@ -24,5 +24,16 @@ class TestPerceptron(unittest.TestCase):
 		self.assertEqual(1,OR.do(1,0))
 		self.assertEqual(0,OR.do(0,0))
 		self.assertEqual(1,OR.do(1,1))
+	def test_xor(self):
+		NAND = fortest.Perceptron(w1=-0.5,w2=-0.5,b=0.7)
+		OR = fortest.Perceptron(w1=0.5,w2=0.5,b = -0.2)
+		AND = fortest.Perceptron(0.5,0.5,-0.7)
+		def XOR(x1,x2):
+			return AND.do(NAND.do(x1,x2),OR.do(x1,x2))	
+		
+		self.assertEqual(0,XOR(0,0))			
+		self.assertEqual(1,XOR(1,0))			
+		self.assertEqual(1,XOR(0,1))			
+		self.assertEqual(0,XOR(1,1))			
 if __name__ == '__main__':
 	unittest.main()
